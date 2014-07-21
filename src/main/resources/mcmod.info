@@ -1,0 +1,21 @@
+[
+{
+  "modid": "MagiTek",
+  "name": "MagiTek",
+  "description": "Automise your base with magic",
+  "version": "0.1a",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "Nimblewright"
+  ],
+  "credits": "Nimblewright",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
