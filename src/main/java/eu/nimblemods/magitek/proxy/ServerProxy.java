@@ -1,5 +1,5 @@
 package eu.nimblemods.magitek.proxy;
 
-public class ServerProxy
+public class ServerProxy extends CommonProxy
 {
 }
