@@ -9,6 +9,8 @@ public class Names
 
     public class NBT
     {
-
+        public static final String ORIENTATION = "orientation";
+        public static final String STATE = "state";
+        public static final String CUSTOM_NAME = "customName";
     }
 }

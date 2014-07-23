@@ -3,6 +3,7 @@ package eu.nimblemods.magitek.handler;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import eu.nimblemods.magitek.reference.Reference;
+import eu.nimblemods.magitek.util.Logger;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
@@ -43,6 +44,7 @@ public class ConfigurationHandler
         catch (Exception e)
         {
             //Log the exception
+            Logger.error(e.toString());
         }
         finally
         {

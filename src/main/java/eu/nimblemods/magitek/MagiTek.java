@@ -7,7 +7,9 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import eu.nimblemods.magitek.handler.ConfigurationHandler;
+import eu.nimblemods.magitek.init.ModBlocks;
 import eu.nimblemods.magitek.init.ModItems;
+import eu.nimblemods.magitek.init.Recipes;
 import eu.nimblemods.magitek.proxy.IProxy;
 import eu.nimblemods.magitek.reference.Reference;
 import eu.nimblemods.magitek.util.Logger;
@@ -26,7 +28,9 @@ public class MagiTek
     {
         ConfigurationHandler.init(e.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
         ModItems.init();
+        ModBlocks.init();
 
         Logger.info("Pre Initialization complete");
     }
@@ -34,6 +38,8 @@ public class MagiTek
     @Mod.EventHandler
     public void init(FMLInitializationEvent e)
     {
+        Recipes.init();
+
         Logger.info("Initialization complete");
     }
 
