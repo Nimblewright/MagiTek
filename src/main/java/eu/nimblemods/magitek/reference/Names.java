@@ -7,6 +7,11 @@ public class Names
         public static final String TEST_ITEM = "testItem";
     }
 
+    public class Blocks
+    {
+        public static final String ARCANA_GENERATOR = "arcanaGenerator";
+    }
+
     public class NBT
     {
         public static final String ORIENTATION = "orientation";

@@ -2,6 +2,7 @@ package eu.nimblemods.magitek.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import eu.nimblemods.magitek.creativetab.CreativeTab;
 import eu.nimblemods.magitek.reference.Textures;
 import eu.nimblemods.magitek.tileentity.TileEntityMTek;
 import net.minecraft.block.Block;
@@ -18,6 +19,7 @@ public class BlockMTek extends Block
     public BlockMTek(Material material)
     {
         super(material);
+        this.setCreativeTab(CreativeTab.MTEK_TAB);
     }
 
     public BlockMTek()

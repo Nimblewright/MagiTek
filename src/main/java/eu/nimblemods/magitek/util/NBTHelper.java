@@ -1,6 +1,5 @@
 package eu.nimblemods.magitek.util;
 
-import eu.nimblemods.magitek.reference.Names;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;

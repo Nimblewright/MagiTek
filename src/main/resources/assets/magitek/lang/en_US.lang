@@ -1,0 +1,5 @@
+#Items
+item.magitek:testItem.name=Test Item
+
+#Blocks
+tile.magitek:arcanaGenerator.name=Arcana Generator
