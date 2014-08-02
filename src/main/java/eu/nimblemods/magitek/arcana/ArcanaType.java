@@ -5,5 +5,6 @@ public enum ArcanaType
     ABJURATION,
     CONJURATION,
     DIVINATION,
-    TRANSMUTATION
+    TRANSMUTATION,
+    DEFAULT
 }

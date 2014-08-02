@@ -11,12 +11,8 @@ import eu.nimblemods.magitek.init.ModBlocks;
 import eu.nimblemods.magitek.init.ModItems;
 import eu.nimblemods.magitek.init.Recipes;
 import eu.nimblemods.magitek.proxy.IProxy;
-import eu.nimblemods.magitek.reference.ArcanaValues;
 import eu.nimblemods.magitek.reference.Reference;
 import eu.nimblemods.magitek.util.Logger;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
 public class MagiTek

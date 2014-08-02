@@ -18,8 +18,8 @@ public class ConfigurationHandler
         if(configuration == null)
         {
             configuration = new Configuration(configFile);
-            loadConfiguration();
         }
+        loadConfiguration();
     }
 
     @SubscribeEvent

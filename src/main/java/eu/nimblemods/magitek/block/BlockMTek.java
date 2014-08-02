@@ -32,7 +32,7 @@ public class BlockMTek extends Block
     {
         if(world.getTileEntity(x, y, z) instanceof TileEntityMTek)
         {
-            int orientation = 0;
+            int orientation;
             int facing = MathHelper.floor_double(entityLiving.rotationYaw * 4.0F / 360.0F + 0.5D) % 3;
 
             switch(facing)

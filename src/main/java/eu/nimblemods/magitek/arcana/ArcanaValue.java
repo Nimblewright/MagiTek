@@ -1,19 +1,33 @@
 package eu.nimblemods.magitek.arcana;
 
+import net.minecraft.item.Item;
+
 public final class ArcanaValue
 {
     private final float arcanaValue;
     private final ArcanaType arcanaType;
+    private final Item item;
 
-    public ArcanaValue(int arcanaValue, ArcanaType arcanaType)
+    public ArcanaValue(int arcanaValue, Item item)
     {
-        this((float) arcanaValue, arcanaType);
+        this(arcanaValue, ArcanaType.DEFAULT, item);
     }
 
-    public ArcanaValue(float arcanaValue, ArcanaType arcanaType)
+    public ArcanaValue(float arcanaValue, Item item)
+    {
+        this(arcanaValue, ArcanaType.DEFAULT, item);
+    }
+
+    public ArcanaValue(int arcanaValue, ArcanaType arcanaType, Item item)
+    {
+        this((float) arcanaValue, arcanaType, item);
+    }
+
+    public ArcanaValue(float arcanaValue, ArcanaType arcanaType, Item item)
     {
         this.arcanaValue = arcanaValue;
         this.arcanaType = arcanaType;
+        this.item = item;
     }
 
     public ArcanaType getArcanaType()
@@ -24,6 +38,11 @@ public final class ArcanaValue
     public float getArcanaValue()
     {
         return arcanaValue;
+    }
+
+    public Item getItem()
+    {
+        return item;
     }
 
     @Override
