@@ -40,6 +40,8 @@ public class MagiTek
     {
         Recipes.init();
 
+        proxy.registerTileEntities();
+
         Logger.info("Initialization complete");
     }
 

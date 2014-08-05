@@ -1,25 +1,41 @@
 package eu.nimblemods.magitek.tileentity;
 
+import eu.nimblemods.magitek.arcana.ArcanaValue;
+import eu.nimblemods.magitek.arcana.ArcanaValues;
+import eu.nimblemods.magitek.reference.Names;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 
-public class TileEntityGenerator extends TileEntityMTek
+public class TileEntityGenerator extends SimpleInventory
 {
-    public static final int INVENTORY_SIZE = 1;
-
-    private ItemStack inventory;
+    private ArcanaValue energy;
 
     public TileEntityGenerator()
     {
-        inventory = null;
+        super();
+        energy = new ArcanaValue(0f);
     }
 
-    public void setItem(ItemStack itemStack)
+    @Override
+    public void readFromNBT(NBTTagCompound nbtTagCompound)
     {
-        inventory = new ItemStack(itemStack.getItem());
+        super.readFromNBT(nbtTagCompound);
+
+        //Get item from NBT
+        NBTTagCompound tagCompound = nbtTagCompound.getTagList(Names.NBT.ITEMS, 1).getCompoundTagAt(0);
+        if(tagCompound.getByte(Names.NBT.SLOT) == 0)
+        {
+            inventory = ItemStack.loadItemStackFromNBT(tagCompound);
+        }
     }
 
-    public ItemStack getItem()
+    @Override
+    public boolean isViableItem(ItemStack itemStack)
     {
-        return inventory;
+        return ArcanaValues.isArcaneItem(itemStack);
     }
 }

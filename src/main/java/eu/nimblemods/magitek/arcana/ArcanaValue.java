@@ -1,33 +1,34 @@
 package eu.nimblemods.magitek.arcana;
 
-import net.minecraft.item.Item;
-
-public final class ArcanaValue
+public class ArcanaValue
 {
-    private final float arcanaValue;
-    private final ArcanaType arcanaType;
-    private final Item item;
+    private float arcanaAmount;
+    private ArcanaType arcanaType;
 
-    public ArcanaValue(int arcanaValue, Item item)
+    public ArcanaValue(float arcanaAmount, ArcanaType arcanaType)
     {
-        this(arcanaValue, ArcanaType.DEFAULT, item);
-    }
-
-    public ArcanaValue(float arcanaValue, Item item)
-    {
-        this(arcanaValue, ArcanaType.DEFAULT, item);
-    }
-
-    public ArcanaValue(int arcanaValue, ArcanaType arcanaType, Item item)
-    {
-        this((float) arcanaValue, arcanaType, item);
-    }
-
-    public ArcanaValue(float arcanaValue, ArcanaType arcanaType, Item item)
-    {
-        this.arcanaValue = arcanaValue;
+        this.arcanaAmount = arcanaAmount;
         this.arcanaType = arcanaType;
-        this.item = item;
+    }
+
+    public ArcanaValue(int arcanaAmount, ArcanaType arcanaType)
+    {
+        this((float) arcanaAmount, arcanaType);
+    }
+
+    public ArcanaValue(float arcanaAmount)
+    {
+        this(arcanaAmount, ArcanaType.DEFAULT);
+    }
+
+    public ArcanaValue(int arcanaAmount)
+    {
+        this((float)arcanaAmount);
+    }
+
+    public float getArcanaAmount()
+    {
+        return arcanaAmount;
     }
 
     public ArcanaType getArcanaType()
@@ -35,29 +36,33 @@ public final class ArcanaValue
         return arcanaType;
     }
 
-    public float getArcanaValue()
+    public boolean addArcana(float amount)
     {
-        return arcanaValue;
+        this.arcanaAmount += amount;
+        return true;
     }
 
-    public Item getItem()
+    public boolean addArcana(int amount)
     {
-        return item;
+        return addArcana((float) amount);
     }
 
-    @Override
-    public boolean equals(Object o)
+    public boolean addArcana(ArcanaValue arcanaValue)
     {
-        if(o instanceof ArcanaValue)
+        if(this.arcanaType == arcanaValue.getArcanaType())
         {
-            return (((ArcanaValue) o).getArcanaType() == this.arcanaType) && (((ArcanaValue) o).getArcanaValue() ==this.arcanaValue);
+            addArcana(arcanaValue.getArcanaAmount());
+            return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
     @Override
     public String toString()
     {
-        return String.format("%s@%s", arcanaValue, arcanaType);
+        return String.format("%s@%s", arcanaAmount, arcanaType);
     }
 }
