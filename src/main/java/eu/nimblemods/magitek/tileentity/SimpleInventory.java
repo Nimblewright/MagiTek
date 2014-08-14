@@ -1,11 +1,14 @@
 package eu.nimblemods.magitek.tileentity;
 
+import eu.nimblemods.magitek.arcana.ArcanaValues;
 import eu.nimblemods.magitek.util.Logger;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public abstract class SimpleInventory extends TileEntityMTek
 {
-    protected ItemStack inventory;
+    protected Item inventory;
 
     protected SimpleInventory()
     {
@@ -15,50 +18,47 @@ public abstract class SimpleInventory extends TileEntityMTek
 
     public abstract boolean isViableItem(ItemStack itemStack);
 
-    public ItemStack insertItem(ItemStack itemStack)
+    public boolean onRightClick(EntityPlayer player)
     {
-        if(isViableItem(itemStack))
+        Logger.info("Right Click");
+
+        if(!player.isSneaking())
         {
-            if(inventory == null)
+            if(player.getCurrentEquippedItem() != null)
             {
-                Logger.info("Case 1");
-                inventory = itemStack.copy();
-                return null;
+                player.inventory.setInventorySlotContents(player.inventory.currentItem, insertItem(player.getCurrentEquippedItem()));
             }
             else
             {
-                if(inventory.getItem().equals(itemStack.getItem()))
-                {
-                    if(inventory.getMaxStackSize() > inventory.stackSize + itemStack.stackSize)
-                    {
-                        Logger.info("Case 2.1.1");
-                        inventory.stackSize += itemStack.stackSize;
-                        return null;
-                    }
-                    else
-                    {
-                        Logger.info("Case 2.1.2");
-                        itemStack.stackSize -= inventory.getMaxStackSize() - inventory.stackSize;
-                        inventory.stackSize = inventory.getMaxStackSize();
-                        return itemStack;
-                    }
-                }
-                else
-                {
-                    Logger.info("Case 2.2");
-                    return itemStack;
-                }
+                player.inventory.setInventorySlotContents(player.inventory.currentItem, retrieveItem());
             }
+            return true;
         }
         else
         {
-            return itemStack;
+            return false;
         }
+
+    }
+
+    public ItemStack insertItem(ItemStack itemStack)
+    {
+        if(ArcanaValues.isArcaneItem(itemStack) && inventory == null)
+        {
+            inventory = itemStack.getItem();
+            itemStack.stackSize--;
+            if(itemStack.stackSize == 0)
+            {
+                itemStack = null;
+            }
+        }
+
+        return itemStack;
     }
 
     public ItemStack retrieveItem()
     {
-        ItemStack itemStack = inventory;
+        ItemStack itemStack = new ItemStack(inventory);
         inventory = null;
         return itemStack;
     }

@@ -26,9 +26,9 @@ public class Arcana
     public static final ArcanaType STONE_TYPE = ArcanaType.CONJURATION;
     public static final Item STONE_ITEM = Item.getItemFromBlock(Blocks.stone);
 
-    public static final float ENDER_PEARL_VALUE = MEDIUM_TIER;
-    public static final ArcanaType ENDER_PEARL_TYPE = ArcanaType.CONJURATION;
-    public static final Item ENDER_PEARL_ITEM = Items.ender_pearl;
+    public static final float EMERALD_VALUE = MEDIUM_TIER;
+    public static final ArcanaType EMERALD_TYPE = ArcanaType.CONJURATION;
+    public static final Item EMERALD_ITEM = Items.emerald;
 
     //Fire - Transmutation
 
@@ -46,7 +46,7 @@ public class Arcana
     public static final ArcanaType REED_TYPE = ArcanaType.DIVINATION;
     public static final Item REED_ITEM = Items.reeds;
 
-    public static final float EMERALD_VALUE = MEDIUM_TIER;
-    public static final ArcanaType EMERALD_TYPE = ArcanaType.DIVINATION;
-    public static final Item EMERALD_ITEM = Items.emerald;
+    public static final float DIAMOND_VALUE = MEDIUM_TIER;
+    public static final ArcanaType DIAMOND_TYPE = ArcanaType.DIVINATION;
+    public static final Item DIAMOND_ITEM = Items.diamond;
 }

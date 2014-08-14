@@ -14,11 +14,11 @@ public class ArcanaValues
 
     //Medium
     public static final ArcaneItemWrapper GHAST_TEAR = new ArcaneItemWrapper(Arcana.GHAST_TEAR_VALUE, Arcana.GHAST_TEAR_TYPE, Arcana.GHAST_TEAR_ITEM);
+    public static final ArcaneItemWrapper DIAMOND = new ArcaneItemWrapper(Arcana.DIAMOND_VALUE, Arcana.DIAMOND_TYPE, Arcana.DIAMOND_ITEM);
     public static final ArcaneItemWrapper EMERALD = new ArcaneItemWrapper(Arcana.EMERALD_VALUE, Arcana.EMERALD_TYPE, Arcana.EMERALD_ITEM);
-    public static final ArcaneItemWrapper ENDER_PEARL = new ArcaneItemWrapper(Arcana.ENDER_PEARL_VALUE, Arcana.ENDER_PEARL_TYPE, Arcana.ENDER_PEARL_ITEM);
     public static final ArcaneItemWrapper BLAZE_ROD = new ArcaneItemWrapper(Arcana.BLAZE_ROD_VALUE, Arcana.BLAZE_ROD_TYPE, Arcana.BLAZE_ROD_ITEM);
 
-    private static final ArcaneItemWrapper[] ARCANA_VALUES = {FEATHER, REED, STONE, COAL, GHAST_TEAR, EMERALD, ENDER_PEARL, BLAZE_ROD};
+    private static final ArcaneItemWrapper[] ARCANA_VALUES = {FEATHER, REED, STONE, COAL, GHAST_TEAR, DIAMOND, EMERALD, BLAZE_ROD};
 
     public static boolean isArcaneItem(ItemStack itemStack)
     {
