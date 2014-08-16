@@ -7,6 +7,13 @@ import net.minecraft.item.Item;
 
 public class Arcana
 {
+    public static final int NUMBER_OF_ARCANAS = 5;
+    public static final ArcanaType[] ARCANA_TYPES = {   ArcanaType.ABJURATION,
+                                                        ArcanaType.CONJURATION,
+                                                        ArcanaType.DIVINATION,
+                                                        ArcanaType.TRANSMUTATION,
+                                                        ArcanaType.DEFAULT};
+
     private static final float VERY_LOW_TIER = 0.05f;
     private static final float MEDIUM_TIER = 1f;
     
@@ -26,9 +33,9 @@ public class Arcana
     public static final ArcanaType STONE_TYPE = ArcanaType.CONJURATION;
     public static final Item STONE_ITEM = Item.getItemFromBlock(Blocks.stone);
 
-    public static final float EMERALD_VALUE = MEDIUM_TIER;
-    public static final ArcanaType EMERALD_TYPE = ArcanaType.CONJURATION;
-    public static final Item EMERALD_ITEM = Items.emerald;
+    public static final float ENDER_PEARL_VALUE = MEDIUM_TIER;
+    public static final ArcanaType ENDER_PEARL_TYPE = ArcanaType.CONJURATION;
+    public static final Item ENDER_PEARL_ITEM = Items.ender_pearl;
 
     //Fire - Transmutation
 

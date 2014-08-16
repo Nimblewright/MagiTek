@@ -1,19 +1,30 @@
 package eu.nimblemods.magitek.tileentity;
 
-import eu.nimblemods.magitek.arcana.ArcanaValue;
+import eu.nimblemods.magitek.arcana.ArcanaReservoir;
 import eu.nimblemods.magitek.arcana.ArcanaValues;
+import eu.nimblemods.magitek.reference.Machines;
 import eu.nimblemods.magitek.reference.Names;
+import eu.nimblemods.magitek.util.Logger;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class TileEntityGenerator extends SimpleInventory
 {
-    private ArcanaValue energy;
+    private ArcanaReservoir reservoir;
+    private int tickCounter, tickCounterMax;
 
     public TileEntityGenerator()
     {
         super();
-        energy = new ArcanaValue(0f);
+        reservoir = new ArcanaReservoir(Machines.GENERATOR_MAX_ARCANA);
+
+        tickCounter = 1;
+        tickCounterMax = Machines.GENERATOR_TICK_MAX;
+    }
+
+    private void resetCounter()
+    {
+        tickCounter = 1;
     }
 
     @Override
@@ -30,7 +41,7 @@ public class TileEntityGenerator extends SimpleInventory
     }
 
     @Override
-    public boolean isViableItem(ItemStack itemStack)
+    public boolean isValidItem(ItemStack itemStack)
     {
         return ArcanaValues.isArcaneItem(itemStack);
     }
@@ -38,6 +49,20 @@ public class TileEntityGenerator extends SimpleInventory
     @Override
     public void updateEntity()
     {
-        
+        if(tickCounter >= tickCounterMax)
+        {
+            if(inventory != null)
+            {
+                reservoir.add(ArcanaValues.getArcana(inventory).getArcanaValue());
+
+                Logger.info("Tick");
+            }
+
+            resetCounter();
+        }
+        else
+        {
+            tickCounter++;
+        }
     }
 }

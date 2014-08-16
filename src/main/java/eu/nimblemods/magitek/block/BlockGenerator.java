@@ -5,11 +5,8 @@ import eu.nimblemods.magitek.tileentity.TileEntityGenerator;
 import eu.nimblemods.magitek.util.Logger;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
 
 public class BlockGenerator extends BlockMTek implements ITileEntityProvider
 {

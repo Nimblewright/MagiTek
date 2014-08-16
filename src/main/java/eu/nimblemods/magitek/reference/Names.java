@@ -19,6 +19,5 @@ public class Names
         public static final String STATE = "state";
         public static final String CUSTOM_NAME = "customName";
         public static final String SLOT = "Slot";
-        public static final String ENERGY = "Energy";
     }
 }

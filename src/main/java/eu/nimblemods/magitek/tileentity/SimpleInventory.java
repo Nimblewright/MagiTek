@@ -1,6 +1,5 @@
 package eu.nimblemods.magitek.tileentity;
 
-import eu.nimblemods.magitek.arcana.ArcanaValues;
 import eu.nimblemods.magitek.util.Logger;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -16,7 +15,7 @@ public abstract class SimpleInventory extends TileEntityMTek
         inventory = null;
     }
 
-    public abstract boolean isViableItem(ItemStack itemStack);
+    public abstract boolean isValidItem(ItemStack itemStack);
 
     public boolean onRightClick(EntityPlayer player)
     {
@@ -43,7 +42,7 @@ public abstract class SimpleInventory extends TileEntityMTek
 
     public ItemStack insertItem(ItemStack itemStack)
     {
-        if(ArcanaValues.isArcaneItem(itemStack) && inventory == null)
+        if(isValidItem(itemStack) && inventory == null)
         {
             inventory = itemStack.getItem();
             itemStack.stackSize--;
